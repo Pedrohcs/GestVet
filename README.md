@@ -1,4 +1,6 @@
-# Repositório destinado ao trabalho final da disciplina Desenvolvimento de Software para Persistência 
+# GetVet
+
+Repositório destinado ao trabalho final da disciplina Desenvolvimento de Software para Persistência 
 
 ## Equipe
 + Estevão Cristino 
