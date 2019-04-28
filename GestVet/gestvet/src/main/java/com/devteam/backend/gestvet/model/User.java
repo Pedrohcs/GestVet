@@ -1,4 +1,4 @@
-package com.github.hyagosouzza.gestvet.model;
+package com.devteam.backend.gestvet.model;
 
 import java.util.HashSet;
 import java.util.Set;

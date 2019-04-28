@@ -1,9 +1,9 @@
-package com.github.hyagosouzza.gestvet.repository;
+package com.devteam.backend.gestvet.repository;
 
 import java.util.Optional;
 
-import com.github.hyagosouzza.gestvet.model.Role;
-import com.github.hyagosouzza.gestvet.model.RoleName;
+import com.devteam.backend.gestvet.model.Role;
+import com.devteam.backend.gestvet.model.RoleName;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

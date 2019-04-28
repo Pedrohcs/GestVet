@@ -1,4 +1,4 @@
-package com.github.hyagosouzza.gestvet.message.response;
+package com.devteam.backend.gestvet.message.response;
 
 public class JwtResponse {
     private String token;

@@ -1,8 +1,8 @@
-package com.github.hyagosouzza.gestvet.security;
+package com.devteam.backend.gestvet.security;
 
-import com.github.hyagosouzza.gestvet.security.jwt.JwtAuthEntryPoint;
-import com.github.hyagosouzza.gestvet.security.jwt.JwtAuthTokenFilter;
-import com.github.hyagosouzza.gestvet.security.services.UserDetailsServiceImpl;
+import com.devteam.backend.gestvet.security.jwt.JwtAuthEntryPoint;
+import com.devteam.backend.gestvet.security.jwt.JwtAuthTokenFilter;
+import com.devteam.backend.gestvet.security.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

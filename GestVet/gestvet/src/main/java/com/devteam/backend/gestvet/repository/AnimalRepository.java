@@ -1,6 +1,6 @@
-package com.github.hyagosouzza.gestvet.repository;
+package com.devteam.backend.gestvet.repository;
 
-import com.github.hyagosouzza.gestvet.model.Animal;
+import com.devteam.backend.gestvet.model.Animal;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;

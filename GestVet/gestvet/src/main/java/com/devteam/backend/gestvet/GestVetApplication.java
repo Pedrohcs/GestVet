@@ -1,4 +1,4 @@
-package com.github.hyagosouzza.gestvet;
+package com.devteam.backend.gestvet;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

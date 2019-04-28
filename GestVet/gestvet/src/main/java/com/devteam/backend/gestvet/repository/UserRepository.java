@@ -1,8 +1,8 @@
-package com.github.hyagosouzza.gestvet.repository;
+package com.devteam.backend.gestvet.repository;
 
 import java.util.Optional;
 
-import com.github.hyagosouzza.gestvet.model.User;
+import com.devteam.backend.gestvet.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

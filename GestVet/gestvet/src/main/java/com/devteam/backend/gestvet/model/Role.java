@@ -1,4 +1,4 @@
-package com.github.hyagosouzza.gestvet.model;
+package com.devteam.backend.gestvet.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
