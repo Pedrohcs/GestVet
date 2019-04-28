@@ -1,6 +1,6 @@
-package com.github.hyagosouzza.gestvet.security.services;
+package com.devteam.backend.gestvet.security.services;
 
-import com.github.hyagosouzza.gestvet.model.Animal;
+import com.devteam.backend.gestvet.model.Animal;
 
 import java.util.List;
 

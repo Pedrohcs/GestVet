@@ -1,7 +1,7 @@
-package com.github.hyagosouzza.gestvet.security.services;
+package com.devteam.backend.gestvet.security.services;
 
-import com.github.hyagosouzza.gestvet.model.Animal;
-import com.github.hyagosouzza.gestvet.repository.AnimalRepository;
+import com.devteam.backend.gestvet.model.Animal;
+import com.devteam.backend.gestvet.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

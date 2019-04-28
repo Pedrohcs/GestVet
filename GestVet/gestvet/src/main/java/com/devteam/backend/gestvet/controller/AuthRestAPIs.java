@@ -1,19 +1,19 @@
-package com.github.hyagosouzza.gestvet.controller;
+package com.devteam.backend.gestvet.controller;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.validation.Valid;
 
-import com.github.hyagosouzza.gestvet.message.request.LoginForm;
-import com.github.hyagosouzza.gestvet.message.request.SignUpForm;
-import com.github.hyagosouzza.gestvet.message.response.JwtResponse;
-import com.github.hyagosouzza.gestvet.model.Role;
-import com.github.hyagosouzza.gestvet.model.RoleName;
-import com.github.hyagosouzza.gestvet.model.User;
-import com.github.hyagosouzza.gestvet.repository.RoleRepository;
-import com.github.hyagosouzza.gestvet.repository.UserRepository;
-import com.github.hyagosouzza.gestvet.security.jwt.JwtProvider;
+import com.devteam.backend.gestvet.message.request.LoginForm;
+import com.devteam.backend.gestvet.message.request.SignUpForm;
+import com.devteam.backend.gestvet.message.response.JwtResponse;
+import com.devteam.backend.gestvet.model.Role;
+import com.devteam.backend.gestvet.model.RoleName;
+import com.devteam.backend.gestvet.model.User;
+import com.devteam.backend.gestvet.repository.RoleRepository;
+import com.devteam.backend.gestvet.repository.UserRepository;
+import com.devteam.backend.gestvet.security.jwt.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

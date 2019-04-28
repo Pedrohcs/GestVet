@@ -1,6 +1,6 @@
-package com.github.hyagosouzza.gestvet.security.jwt;
+package com.devteam.backend.gestvet.security.jwt;
 
-import com.github.hyagosouzza.gestvet.security.services.UserPrinciple;
+import com.devteam.backend.gestvet.security.services.UserPrinciple;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

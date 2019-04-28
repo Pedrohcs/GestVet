@@ -1,7 +1,7 @@
-package com.github.hyagosouzza.gestvet.security.services;
+package com.devteam.backend.gestvet.security.services;
 
-import com.github.hyagosouzza.gestvet.model.User;
-import com.github.hyagosouzza.gestvet.repository.UserRepository;
+import com.devteam.backend.gestvet.model.User;
+import com.devteam.backend.gestvet.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

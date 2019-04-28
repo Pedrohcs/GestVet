@@ -1,4 +1,4 @@
-package com.github.hyagosouzza.gestvet.security.jwt;
+package com.devteam.backend.gestvet.security.jwt;
 
 import java.io.IOException;
 

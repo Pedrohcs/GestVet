@@ -1,4 +1,4 @@
-package com.github.hyagosouzza.gestvet.controller;
+package com.devteam.backend.gestvet.controller;
 
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
