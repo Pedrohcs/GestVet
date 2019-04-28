@@ -23,6 +23,7 @@ public class AnimalServiceImpl implements AnimalService{
         if(animal != null){
             repository.delete(animal);
         }
+        return animal;
     }
 
     @Override
