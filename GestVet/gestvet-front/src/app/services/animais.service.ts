@@ -14,4 +14,8 @@ export class AnimaisService {
     return this.http.get<Animal[]>(this.baseUrl + 'animais');
   }
 
+  createAnimal(animal) {
+    return this.http.post<Animal>(this.baseUrl, animal);
+  }
+
 }
