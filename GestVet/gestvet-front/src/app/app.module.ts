@@ -6,10 +6,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthGuardService } from './auth-guard.service';
-import { TokenStorage } from './token.storage';
+import { AuthGuardService } from './services/auth-guard.service';
+import { TokenStorage } from './services/token.storage';
+import { AnimaisService } from './services/animais.service';
 
 const appRoutes: Routes = [
   {
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService]
   },
   { path: '',
-    redirectTo: '/login',
+    redirectTo: 'login',
     pathMatch: 'full'
   }
 ];
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService, TokenStorage],
+  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,7 +33,7 @@ public class AnimalServiceImpl implements AnimalService{
 
     @Override
     public Animal findById(Long id){
-        return repository.findOne(id);
+        return repository.findById(id);
     }
 
     @Override

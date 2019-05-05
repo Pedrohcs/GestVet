@@ -1,4 +1,9 @@
 <p>
   user works!
 </p>
+<button type="button" (click)="getAnimais()">Get Animais</button>
+<p *ngFor="let animal of animais">
+  a
+  {{animal | json}}
+</p>
 <button (click)="logout()">Logout</button>

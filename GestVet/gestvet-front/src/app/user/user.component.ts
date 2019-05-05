@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TokenStorage } from '../token.storage';
+import { TokenStorage } from '../services/token.storage';
+import { AnimaisService } from '../services/animais.service';
+import { Animal } from '../models/animal.model';
 
 @Component({
   selector: 'app-user',
@@ -8,9 +10,17 @@ import { TokenStorage } from '../token.storage';
 })
 export class UserComponent implements OnInit {
 
-  constructor(private token: TokenStorage) { }
+  animais: Array<Animal> = new Array();
+
+  constructor(private token: TokenStorage, private animaisService: AnimaisService) { }
 
   ngOnInit() {
+  }
+
+  getAnimais() {
+    this.animaisService.getAnimais().toPromise().then( animais => {
+      this.animais = animais;
+    });
   }
 
   logout() {

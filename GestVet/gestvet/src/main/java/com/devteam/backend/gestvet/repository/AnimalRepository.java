@@ -11,7 +11,7 @@ public interface AnimalRepository extends Repository<Animal, Integer> {
 
     List<Animal> findAll();
 
-    Animal findOne(Long id);
+    Animal findById(Long id);
 
     void delete(Animal animal);
 }
