@@ -4,9 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "medicamento", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "nome")
-})
+@Table(name = "Medicamento")
 public class Medicamento {
 
     @Id
@@ -21,11 +19,15 @@ public class Medicamento {
     private double preco;
     @Column
     private String dosagem;
+    @Column
+    private int quantidade;
 
-    public Medicamento(@NotBlank String nome, double preco, String dosagem) {
-        this.nome = nome;
-        this.preco = preco;
-        this.dosagem = dosagem;
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public String getNome() {
@@ -50,5 +52,13 @@ public class Medicamento {
 
     public void setDosagem(String dosagem) {
         this.dosagem = dosagem;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
