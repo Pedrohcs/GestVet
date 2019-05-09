@@ -1,9 +1,32 @@
-<p>
-  user works!
-</p>
-<button type="button" (click)="getAnimais()">Get Animais</button>
-<p *ngFor="let animal of animais">
-  a
-  {{animal | json}}
-</p>
-<button (click)="logout()">Logout</button>
+<ul class="nav justify-content-center">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+       aria-expanded="false">Animal</a>
+    <div class="dropdown-menu">
+      <a class="btn dropdown-item" routerLink="/user/adicionar-animal">Cadastrar Animal</a>
+      <a class="btn dropdown-item" routerLink="/user/animal">Ver Animais</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+       aria-expanded="false">Medicamento</a>
+    <div class="dropdown-menu">
+      <a class="btn dropdown-item" routerLink="">Cadastrar Medicamento</a>
+      <a class="btn dropdown-item" routerLink="">Ver Medicamentos</a>
+      <a class="btn dropdown-item" routerLink="">Pesquisar Medicamentos</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+       aria-expanded="false">Veterinário</a>
+    <div class="dropdown-menu">
+      <a class="btn dropdown-item" routerLink="">Cadastrar Veterinário</a>
+      <a class="btn dropdown-item" routerLink="">Ver Veterinários</a>
+      <a class="btn dropdown-item" routerLink="">Pesquisar Veterinário</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <button class="nav-link active btn btn-danger" (click)="logout()">Log Out</button>
+  </li>
+</ul>
+<br>

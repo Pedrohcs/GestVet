@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from './services/auth-guard.service';
 import { TokenStorage } from './services/token.storage';
 import { AnimaisService } from './services/animais.service';
+import { CriarAnimalComponent } from './funcionalidades/crud/animal/criar-animal/criar-animal.component';
+import { AnimalComponent } from './funcionalidades/crud/animal/animal.component';
 
 const appRoutes: Routes = [
   {
@@ -25,6 +27,14 @@ const appRoutes: Routes = [
   { path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: '/user/adicionar-animal',
+    component: CriarAnimalComponent
+  },
+  {
+    path: '/user/animal',
+    component: AnimalComponent
   }
 ];
 
@@ -32,7 +42,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    CriarAnimalComponent,
+    AnimalComponent
   ],
   imports: [
     BrowserModule,
