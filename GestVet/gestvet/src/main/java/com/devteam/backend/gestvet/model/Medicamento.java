@@ -2,6 +2,8 @@ package com.devteam.backend.gestvet.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Medicamento")
@@ -21,6 +23,12 @@ public class Medicamento {
     private String dosagem;
     @Column
     private int quantidade;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "venda_id",
+            joinColumns = @JoinColumn(name = "vendas", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "medicamentos", referencedColumnName = "id"))
+    private List<Venda> vendas;
 
     public int getQuantidade() {
         return quantidade;

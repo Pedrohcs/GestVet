@@ -25,16 +25,19 @@ public class UserPrinciple implements UserDetails {
     @JsonIgnore
     private String password;
 
+    private Long crmv;
+
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrinciple(Long id, String name, 
-			    		String username, String email, String password, 
-			    		Collection<? extends GrantedAuthority> authorities) {
+    public UserPrinciple(Long id, String name,
+                         String username, String email, String password,
+                         Long crmv, Collection<? extends GrantedAuthority> authorities) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.crmv = crmv;
         this.authorities = authorities;
     }
 
@@ -49,7 +52,7 @@ public class UserPrinciple implements UserDetails {
                 user.getUsername(),
                 user.getEmail(),
                 user.getPassword(),
-                authorities
+                user.getCrmv(), authorities
         );
     }
 
