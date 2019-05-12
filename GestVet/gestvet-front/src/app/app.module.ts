@@ -29,11 +29,11 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '/user/adicionar-animal',
+    path: 'user/adicionar-animal',
     component: CriarAnimalComponent
   },
   {
-    path: '/user/animal',
+    path: 'user/animal',
     component: AnimalComponent
   }
 ];
