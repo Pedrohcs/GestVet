@@ -24,12 +24,6 @@ public class Medicamento {
     @Column
     private int quantidade;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "venda_id",
-            joinColumns = @JoinColumn(name = "vendas", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "medicamentos", referencedColumnName = "id"))
-    private List<Venda> vendas;
-
     public int getQuantidade() {
         return quantidade;
     }

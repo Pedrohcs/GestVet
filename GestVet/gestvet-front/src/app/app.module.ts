@@ -13,6 +13,10 @@ import { TokenStorage } from './services/token.storage';
 import { AnimaisService } from './services/animais.service';
 import { CriarAnimalComponent } from './funcionalidades/crud/animal/criar-animal/criar-animal.component';
 import { AnimalComponent } from './funcionalidades/crud/animal/animal.component';
+import {RealizarVendaComponent} from './funcionalidades/crud/vendas/realizar-venda/realizar-venda.component';
+import {ConsultarVendaComponent} from './funcionalidades/crud/vendas/consultar-venda/consultar-venda.component';
+import {VendasService} from './services/vendas.service';
+import {UsersService} from './services/users.service';
 
 const appRoutes: Routes = [
   {
@@ -35,6 +39,14 @@ const appRoutes: Routes = [
   {
     path: 'user/animal',
     component: AnimalComponent
+  },
+  {
+    path: 'user/realizar-venda',
+    component: RealizarVendaComponent
+  },
+  {
+    path: 'user/consultar-venda',
+    component: ConsultarVendaComponent
   }
 ];
 
@@ -44,7 +56,9 @@ const appRoutes: Routes = [
     LoginComponent,
     UserComponent,
     CriarAnimalComponent,
-    AnimalComponent
+    AnimalComponent,
+    RealizarVendaComponent,
+    ConsultarVendaComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +66,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService],
+  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, VendasService, UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,9 @@
 package com.devteam.backend.gestvet.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -12,16 +15,26 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToMany(mappedBy = "vendas")
-    private List<Medicamento> medicamentos; // Referência a um medicamento e quantidade de vendidos.
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name="medicamento_id")
+    private Medicamento medicamento;
 
-    public List<Medicamento> getMedicamentos() {
-        return medicamentos;
-    }
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name="animal_id")
+    private Animal animal;
 
-    public void setMedicamentos(List<Medicamento> medicamentos) {
-        this.medicamentos = medicamentos;
-    }
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User vendedor;
+
+    @NotNull
+    private int quantidade;
+
+    @Temporal(TemporalType.DATE)
+    private Date data;
 
     public long getId() {
         return id;
@@ -29,6 +42,47 @@ public class Venda {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Medicamento getMedicamento() {
+        return medicamento;
+    }
+
+    public void setMedicamento(Medicamento medicamento) {
+        this.medicamento = medicamento;
+    }
+
+    public Animal getAnimal() {
+        return animal;
+    }
+
+    public void setAnimal(Animal animal) {
+        this.animal = animal;
+    }
+
+    public User getVendedor() {
+        return vendedor;
+    }
+
+    public void setVendedor(User vendedor) {
+        this.vendedor = vendedor;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 
 }
