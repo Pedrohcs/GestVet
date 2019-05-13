@@ -6,33 +6,42 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">      
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Animal</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Animal</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="btn dropdown-item" routerLink="/user/adicionar-animal">Cadastrar Animal</a>
-            <a class="btn dropdown-item" routerLink="/user/animal">Ver Animais</a>
+          <a class="btn dropdown-item" routerLink="/user/adicionar-animal">Cadastrar Animal</a>
+          <a class="btn dropdown-item" routerLink="/user/animal">Ver Animais</a>
         </div>
       </li>
       <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Medicamento</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Medicamento</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="btn dropdown-item" routerLink="">Cadastrar Medicamento</a>
-            <a class="btn dropdown-item" routerLink="">Ver Medicamentos</a>
-            <a class="btn dropdown-item" routerLink="">Pesquisar Medicamentos</a>
+          <a class="btn dropdown-item" routerLink="">Cadastrar Medicamento</a>
+          <a class="btn dropdown-item" routerLink="">Ver Medicamentos</a>
+          <a class="btn dropdown-item" routerLink="">Pesquisar Medicamentos</a>
         </div>
       </li>
       <li class="nav-item active dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Veterinário</a>
-          <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="btn dropdown-item" routerLink="">Cadastrar Veterinário</a>
-              <a class="btn dropdown-item" routerLink="">Ver Veterinários</a>
-              <a class="btn dropdown-item" routerLink="">Pesquisar Veterinário</a>
-          </div>
-        </li>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Veterinário</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="btn dropdown-item" routerLink="">Cadastrar Veterinário</a>
+          <a class="btn dropdown-item" routerLink="">Ver Veterinários</a>
+          <a class="btn dropdown-item" routerLink="">Pesquisar Veterinário</a>
+        </div>
+      </li>
+      <li class="nav-item inactive dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Consulta/Retorno</a>
+       <!-- <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="btn dropdown-item" routerLink="">Marcar Consulta</a>
+          <a class="btn dropdown-item" routerLink="">Marcar Retorno</a>
+          <a class="btn dropdown-item" routerLink="">Pesquisar Consulta/Retorno</a>
+        </div>-->
+      </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button class="btn btn-danger my-2 my-sm-0" type="submit" (click)="logout()">Log Out</button>
