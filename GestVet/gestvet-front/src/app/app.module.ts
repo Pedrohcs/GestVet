@@ -13,6 +13,9 @@ import { TokenStorage } from './services/token.storage';
 import { AnimaisService } from './services/animais.service';
 import { CriarAnimalComponent } from './funcionalidades/crud/animal/criar-animal/criar-animal.component';
 import { AnimalComponent } from './funcionalidades/crud/animal/animal.component';
+import { MedicamentoComponent } from './funcionalidades/crud/medicamento/medicamento.component';
+import {MedicamentoService} from './services/medicamento.service';
+import { CriarMedicamentoComponent } from './funcionalidades/crud/medicamento/criar-medicamento/criar-medicamento.component';
 
 const appRoutes: Routes = [
   {
@@ -35,6 +38,10 @@ const appRoutes: Routes = [
   {
     path: 'user/animal',
     component: AnimalComponent
+  },
+  {
+    path: '/user/medicamento',
+    component: MedicamentoComponent
   }
 ];
 
@@ -44,7 +51,9 @@ const appRoutes: Routes = [
     LoginComponent,
     UserComponent,
     CriarAnimalComponent,
-    AnimalComponent
+    AnimalComponent,
+    MedicamentoComponent,
+    CriarMedicamentoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +61,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService],
+  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, MedicamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
