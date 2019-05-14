@@ -17,6 +17,9 @@ import {RealizarVendaComponent} from './funcionalidades/crud/vendas/realizar-ven
 import {ConsultarVendaComponent} from './funcionalidades/crud/vendas/consultar-venda/consultar-venda.component';
 import {VendasService} from './services/vendas.service';
 import {UsersService} from './services/users.service';
+import { MedicamentoComponent } from './funcionalidades/crud/medicamento/medicamento.component';
+import {MedicamentoService} from './services/medicamento.service';
+import { CriarMedicamentoComponent } from './funcionalidades/crud/medicamento/criar-medicamento/criar-medicamento.component';
 
 const appRoutes: Routes = [
   {
@@ -47,6 +50,10 @@ const appRoutes: Routes = [
   {
     path: 'user/consultar-venda',
     component: ConsultarVendaComponent
+  },
+  {
+    path: 'user/medicamento',
+    component: MedicamentoComponent
   }
 ];
 
@@ -58,7 +65,9 @@ const appRoutes: Routes = [
     CriarAnimalComponent,
     AnimalComponent,
     RealizarVendaComponent,
-    ConsultarVendaComponent
+    ConsultarVendaComponent,
+    MedicamentoComponent,
+    CriarMedicamentoComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +75,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, VendasService, UsersService],
+  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, VendasService, UsersService, MedicamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
