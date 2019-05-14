@@ -20,6 +20,7 @@ export class LoginComponent {
   login(): void {
     this.authService.attemptAuth(this.username, this.password).toPromise().then(
       data => {
+        console.log(data);
         this.token.saveToken(data.toString());
         this.usersService.userLogged = this.username;
         this.router.navigate(['user']);

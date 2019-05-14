@@ -15,22 +15,18 @@ public class Venda {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
     @ManyToOne
     @JoinColumn(name="medicamento_id")
     private Medicamento medicamento;
 
-    @NotNull
     @ManyToOne
     @JoinColumn(name="animal_id")
     private Animal animal;
 
-    @NotNull
     @ManyToOne
     @JoinColumn(name="user_id")
     private User vendedor;
 
-    @NotNull
     private int quantidade;
 
     @Temporal(TemporalType.DATE)

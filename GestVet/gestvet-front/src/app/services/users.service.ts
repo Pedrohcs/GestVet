@@ -5,18 +5,14 @@ import {User} from '../models/user.component';
 @Injectable()
 export class UsersService {
 
-  baseUrl = 'http://localhost:8080/get-by-username';
+  baseUrl = 'http://localhost:8080/api/auth/';
   userLogged: any = null;
 
   constructor(private http: HttpClient) {
   }
 
-  getByUsername(username) {
-    return this.http.get<User[]>(this.baseUrl, username);
-  }
-
-  public findOne(user) {
-    return this.http.get<User>(this.baseUrl + user.id);
+  getUserLogged() {
+    return this.http.get<User[]>(this.baseUrl + 'logged-user');
   }
 
 }
