@@ -5,7 +5,7 @@ import {Medicamento} from '../models/medicamento.model';
 @Injectable()
 export class MedicamentoService {
 
-  baseUrl = 'http://localhost:8080/api/auth/medicamentos';
+  baseUrl = 'http://localhost:8080/api/auth/medicamentos/';
 
   constructor(private http: HttpClient) {
   }

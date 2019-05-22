@@ -5,13 +5,13 @@ import { Animal } from '../models/animal.model';
 @Injectable()
 export class AnimaisService {
 
-  baseUrl = 'http://localhost:8080/api/auth/';
+  baseUrl = 'http://localhost:8080/api/auth/animais/';
 
   constructor(private http: HttpClient) {
   }
 
   getAnimais() {
-    return this.http.get<Animal[]>(this.baseUrl + 'animais');
+    return this.http.get<Animal[]>(this.baseUrl);
   }
 
   createAnimal(animal) {

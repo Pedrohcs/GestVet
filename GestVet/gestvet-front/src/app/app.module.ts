@@ -40,8 +40,12 @@ const appRoutes: Routes = [
     component: AnimalComponent
   },
   {
-    path: '/user/medicamento',
+    path: 'user/medicamento',
     component: MedicamentoComponent
+  },
+  {
+    path: 'user/adicionar-medicamento',
+    component: CriarMedicamentoComponent
   }
 ];
 
