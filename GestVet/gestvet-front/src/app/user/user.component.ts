@@ -17,7 +17,6 @@ export class UserComponent implements OnInit {
   constructor(private token: TokenStorage, private animaisService: AnimaisService, private authService: AuthService) {
     authService.getCurrentUser().toPromise().then(user => {
       this.user = user;
-      console.log(user);
     });
   }
 

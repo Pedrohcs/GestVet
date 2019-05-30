@@ -46,6 +46,10 @@ const appRoutes: Routes = [
   {
     path: 'user/adicionar-medicamento',
     component: CriarMedicamentoComponent
+  },
+  {
+    path: '**',
+    component: LoginComponent
   }
 ];
 
