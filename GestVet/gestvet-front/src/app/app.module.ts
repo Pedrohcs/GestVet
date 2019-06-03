@@ -19,6 +19,9 @@ import {UsersService} from './services/users.service';
 import { MedicamentoComponent } from './funcionalidades/crud/medicamento/medicamento.component';
 import {MedicamentoService} from './services/medicamento.service';
 import { CriarMedicamentoComponent } from './funcionalidades/crud/medicamento/criar-medicamento/criar-medicamento.component';
+import {ListarConsultasComponent} from './funcionalidades/crud/consultas/listar-consultas/listar-consultas.component';
+import {ConsultasService} from './services/consultas.service';
+import {MarcarConsultaComponent} from './funcionalidades/crud/consultas/marcar-consulta/marcar-consulta.component';
 
 const appRoutes: Routes = [
   {
@@ -59,6 +62,14 @@ const appRoutes: Routes = [
     component: CriarMedicamentoComponent
   },
   {
+    path: 'user/listar-consultas',
+    component: ListarConsultasComponent
+  },
+  {
+    path: 'user/marcar-consulta',
+    component: MarcarConsultaComponent
+  },
+  {
     path: '**',
     component: LoginComponent
   }
@@ -74,7 +85,9 @@ const appRoutes: Routes = [
     RealizarVendaComponent,
     ConsultarVendaComponent,
     MedicamentoComponent,
-    CriarMedicamentoComponent
+    CriarMedicamentoComponent,
+    ListarConsultasComponent,
+    MarcarConsultaComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +95,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, VendasService, UsersService, MedicamentoService],
+  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, VendasService, UsersService, MedicamentoService, ConsultasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

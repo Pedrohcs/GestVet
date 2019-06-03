@@ -1,0 +1,37 @@
+<app-user></app-user>
+<div>
+  <h2 style="margin-top: 7vh;">Realizar venda</h2>
+
+  <div *ngIf="isLoading" class="spinner-border" role="status" style="width: 50px; height: 50px;">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div *ngIf="!isLoading" class="my-container">
+    <div class="row">
+      <div class="col-3">
+        <h6>Veterinario: {{ user.name }}</h6>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <label for="animal">Animal:</label>
+        <select id="animal" name="animal" class="form-control" [(ngModel)]="animalSelected">
+          <option selected="selected" value="default">Animal</option>
+          <option *ngFor="let animal of animaisDisponiveis; let i = index;">{{animal.nome}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <button type="button" class="btn btn-primary" (click)="realizarVenda()">
+          Marcar consulta
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
