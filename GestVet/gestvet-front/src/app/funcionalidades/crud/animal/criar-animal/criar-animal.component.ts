@@ -18,10 +18,10 @@ export class CriarAnimalComponent implements OnInit {
   }
 
   createAnimal(): void {
-    if(this.animal.idade === (null) ||
-      this.animal.nome === (null || '') ||
-      this.animal.raca === (null || '') ||
-      this.animal.tipo === (null || '') ) {
+    if(this.animal.idade == null ||
+      this.animal.nome == (null || '') ||
+      this.animal.raca == (null || '') ||
+      this.animal.tipo == (null || '') ) {
       alert('Todos os campos devem ser preenchidos');
       return;
     }
@@ -29,6 +29,7 @@ export class CriarAnimalComponent implements OnInit {
     this.animaisService.createAnimal(this.animal)
       .subscribe(data => {
         alert("Animal cadastrado com sucesso.");
+        (document.getElementById("formAnimal") as HTMLFormElement).reset();
       });
 
   }

@@ -9,7 +9,6 @@ export class AuthGuardService implements CanActivate {
 
   constructor(private token: TokenStorage) {
     if(token.getToken() != undefined) {
-      console.log(token.getToken());
       this.isAuthenticated = true;
     } else {
       this.isAuthenticated = false;

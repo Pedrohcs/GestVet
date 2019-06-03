@@ -11,13 +11,16 @@ import {TokenStorage} from '../../../../services/token.storage';
 })
 export class ConsultarVendaComponent implements OnInit {
 
+  historicoVendas: any;
+
   constructor(private vendasService: VendasService, private usersService: UsersService) {
     this.vendasService.getVendas().toPromise().then(vendas => {
+      this.historicoVendas = vendas;
       console.log(vendas);
     });
-    this.usersService.getByUsername(this.usersService.userLogged).toPromise().then(users => {
-      console.log(users);
-    });
+    // this.usersService.getByUsername(this.usersService.userLogged).toPromise().then(users => {
+    //   console.log(users);
+    // });
   }
 
   ngOnInit() {

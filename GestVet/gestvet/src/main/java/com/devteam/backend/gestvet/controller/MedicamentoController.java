@@ -9,7 +9,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping({"/api/auth/medicamentos"})
+@RequestMapping({"/api/medicamentos"})
 public class MedicamentoController {
     @Autowired
     private MedicamentoService medicamentoService;

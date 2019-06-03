@@ -9,7 +9,7 @@ import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping({"/api/auth/animais"})
+@RequestMapping({"/api/animais"})
 public class AnimalController {
     @Autowired
     private AnimalService animalService;
@@ -19,10 +19,15 @@ public class AnimalController {
         return animalService.create(animal);
     }
 
-    @GetMapping(path = {"/{id}"})
+    @PutMapping(path = {"/{id}"})
     public Animal upgrade(@PathVariable("id") Long id, @RequestBody Animal animal){
         animal.setId(id);
         return animalService.upgrade(animal);
+    }
+
+    @GetMapping(path = {"/{id}"})
+    public Animal findById(@PathVariable("id") Long id){
+        return animalService.findById(id);
     }
 
     @DeleteMapping(path = {"/{id}"})

@@ -14,6 +14,7 @@ import com.devteam.backend.gestvet.model.User;
 import com.devteam.backend.gestvet.repository.RoleRepository;
 import com.devteam.backend.gestvet.repository.UserRepository;
 import com.devteam.backend.gestvet.security.jwt.JwtProvider;
+import com.devteam.backend.gestvet.security.services.UserPrinciple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -69,6 +70,14 @@ public class AuthRestAPIs {
 
         String jwt = jwtProvider.generateJwtToken(authentication);
         return ResponseEntity.ok(new JwtResponse(jwt));
+    }
+
+    @GetMapping(path = {"user/{token}"})
+    public Object authenticatedUser(@PathVariable("token") String token) {
+
+        String userName = jwtProvider.getUserNameFromJwtToken(token);
+        Object user = userRepository.findByUsername(userName);
+        return user;
     }
 
     @PostMapping("/signup")
