@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {VendasService} from '../../../../services/vendas.service';
-import {AuthService} from '../../../../services/auth.service';
-import {UsersService} from '../../../../services/users.service';
-import {TokenStorage} from '../../../../services/token.storage';
 import {ConsultasService} from '../../../../services/consultas.service';
 
 @Component({
-  selector: 'app-consultar-venda',
-  templateUrl: './consultar-venda.component.html',
-  styleUrls: ['./consultar-venda.component.scss']
+  selector: 'app-listar-consultas',
+  templateUrl: './listar-consultas.component.html',
+  styleUrls: ['./listar-consultas.component.scss']
 })
 export class ListarConsultasComponent implements OnInit {
 

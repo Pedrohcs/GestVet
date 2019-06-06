@@ -17,8 +17,8 @@ import {AuthService} from '../../../../services/auth.service';
 export class RealizarVendaComponent implements OnInit {
   user: any;
 
-  animalSelected: Animal;
-  medicamentoSelected: Medicamento;
+  animalSelected: any;
+  medicamentoSelected: any;
   quantidadeSelected = 0;
 
   medicamentosDisponiveis: any;
@@ -36,6 +36,7 @@ export class RealizarVendaComponent implements OnInit {
     promises.push(this.medicamentoService.getMedicamentos().toPromise());
     promises.push(this.animalService.getAnimais().toPromise());
     Promise.all(promises).then(([medicamentos, animais]) => {
+      medicamentos.filter((med) => med.quantidade > 0);
       this.medicamentosDisponiveis = medicamentos;
       this.animaisDisponiveis = animais;
       console.log(medicamentos, animais);
@@ -61,8 +62,8 @@ export class RealizarVendaComponent implements OnInit {
   realizarVenda() {
     console.log(this.medicamentoSelected, this.animalSelected);
     console.log(this.quantidadeSelected);
-    if(this.medicamentoSelected === "default" || this.animalSelected === "default" || this.quantidadeSelected <= 0) {
-      alert("Por favor, selecionar medicamento, animal e a quantidade desejada.");
+    if(this.medicamentoSelected === 'default' || this.animalSelected === 'default' || this.quantidadeSelected <= 0) {
+      alert('Por favor, selecionar medicamento, animal e a quantidade desejada.');
     } else {
       this.isRealizandoVenda = true;
       const venda = new Venda();
@@ -77,8 +78,11 @@ export class RealizarVendaComponent implements OnInit {
       venda.data = new Date();
       console.log(venda);
       this.vendasService.createVenda(venda).toPromise().then(result => {
-        this.isRealizandoVenda = false;
-        console.log(venda);
+        venda.medicamento.quantidade--;
+        this.medicamentoService.updateMedicamento(venda.medicamento).toPromise().then(() => {
+          this.isRealizandoVenda = false;
+          console.log(venda);
+        });
       });
     }
 

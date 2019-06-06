@@ -8,6 +8,9 @@ import { MedicamentoService } from '../../../../services/medicamento.service';
 import { AnimaisService } from '../../../../services/animais.service';
 import { UsersService } from '../../../../services/users.service';
 import {AuthService} from '../../../../services/auth.service';
+import {Consulta} from '../../../../models/consulta.model';
+import {ConsultasService} from '../../../../services/consultas.service';
+import {Procedimento} from '../../../../models/procedimento.model';
 
 @Component({
   selector: 'app-realizar-venda',
@@ -18,70 +21,58 @@ export class MarcarConsultaComponent implements OnInit {
   user: any;
 
   animalSelected: Animal;
-  medicamentoSelected: Medicamento;
-  quantidadeSelected = 0;
-
-  medicamentosDisponiveis: any;
   animaisDisponiveis: any;
+  dateSelected: any;
+  consultaSelected: any;
+  procedimentoSelected: any;
+  procedimentosDisponiveis: any;
+  registro: any;
+  realizado: any;
+  retorno: any;
+
+  historicoConsultas: any;
 
   isLoading = true;
-  isRealizandoVenda = false;
+  finishedCreatingConsulta = true;
 
-  constructor(private authService: AuthService, private vendasService: VendasService, private medicamentoService: MedicamentoService, private animalService: AnimaisService) {
+  constructor(private authService: AuthService, private vendasService: VendasService,
+              private medicamentoService: MedicamentoService, private animalService: AnimaisService,
+              private consultaService: ConsultasService) {
     authService.getCurrentUser().subscribe(next => {
       this.user = next;
       console.log(this.user);
     });
+
     const promises = [];
-    promises.push(this.medicamentoService.getMedicamentos().toPromise());
     promises.push(this.animalService.getAnimais().toPromise());
-    Promise.all(promises).then(([medicamentos, animais]) => {
-      this.medicamentosDisponiveis = medicamentos;
+    //promises.push(this.consultaService.getConsultas().toPromise());
+    Promise.all(promises).then(([animais, consultas]) => {
       this.animaisDisponiveis = animais;
-      console.log(medicamentos, animais);
+      this.historicoConsultas = consultas;
+      this.procedimentosDisponiveis = Object.values(Procedimento).filter(object => typeof object === 'string');
+      console.log(this.procedimentosDisponiveis);
       this.isLoading = false;
     });
-    // this.medicamentoService.getMedicamentos().toPromise().then(medicamentos => {
-    //   console.log(medicamentos);
-    // });
-    // this.animalService.getAnimais().toPromise().then(animais => {
-    //   console.log(animais);
-    // });
-    // authService.getCurrentUser().toPromise().then(user => {
-    //   console.log(user);
-    // });
   }
+  // consultas.filter(consulta => consulta.animal.id === this.animalSelected.id);
 
   ngOnInit() {
-
   }
 
-
-
-  realizarVenda() {
-    console.log(this.medicamentoSelected, this.animalSelected);
-    console.log(this.quantidadeSelected);
-    if(this.medicamentoSelected === "default" || this.animalSelected === "default" || this.quantidadeSelected <= 0) {
-      alert("Por favor, selecionar medicamento, animal e a quantidade desejada.");
-    } else {
-      this.isRealizandoVenda = true;
-      const venda = new Venda();
-      venda.animal = this.animaisDisponiveis.find((animal) => {
-        return animal.nome === this.animalSelected;
-      });
-      venda.vendedor = this.user;
-      venda.medicamento = this.medicamentosDisponiveis.find((medicamento) => {
-        return medicamento.nome === this.medicamentoSelected;
-      });
-      venda.quantidade = this.quantidadeSelected;
-      venda.data = new Date();
-      console.log(venda);
-      this.vendasService.createVenda(venda).toPromise().then(result => {
-        this.isRealizandoVenda = false;
-        console.log(venda);
-      });
-    }
-
+  marcarConsulta() {
+    this.finishedCreatingConsulta = false;
+    const consulta = new Consulta();
+    consulta.animal = this.animalSelected;
+    consulta.dataMarcada = this.dateSelected;
+    consulta.consultaOrigem = this.consultaSelected;
+    consulta.procedimento = this.procedimentoSelected;
+    consulta.registro = this.registro;
+    consulta.realizado = this.realizado;
+    consulta.retorno = this.retorno;
+    consulta.veterinario = this.user;
+    this.consultaService.createConsulta(consulta).toPromise().then(() => {
+      this.finishedCreatingConsulta = true;
+    });
   }
 
 }

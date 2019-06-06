@@ -5,7 +5,7 @@ import {Consulta} from '../models/consulta.model';
 @Injectable()
 export class ConsultasService {
 
-  baseUrl = 'http://localhost:8080/api/auth/consultas';
+  baseUrl = 'http://localhost:8080/api/consultas';
 
   constructor(private http: HttpClient) {
   }

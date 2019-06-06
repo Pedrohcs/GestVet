@@ -17,11 +17,14 @@
     </thead>
     <tbody>
     <tr *ngFor="let consulta of historicoConsultas;">
-      <td>{{ consulta.data }}</td>
-      <td>{{ consulta.animal.nome }}</td>
-      <td>{{ consulta.medicamento.nome }}</td>
-      <td>{{ consulta.quantidade }}</td>
       <td>{{ consulta.vendedor.name }}</td>
+      <td>{{ consulta.animal.nome }}</td>
+      <td>{{ consulta.dataMarcada }}</td>
+      <td>{{ consulta.registro }}</td>
+      <td>{{ consulta.dataMarcada ? 'Sim' : 'Não' }}</td>
+      <td>{{ consulta.retorno ? 'Sim' : 'Não' }}</td>
+      <td>{{ consulta.consultaOrigem ? consulta.consultaOrigem.dataMarcada : '-' }}</td>
+      <td>{{ consulta.procedimento }}</td>
     </tr>
     </tbody>
   </table>
