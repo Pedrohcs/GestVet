@@ -1,0 +1,50 @@
+<app-user></app-user>
+<div class="container">
+  <h2 class="text-center">Cadastrar Retorno</h2>
+  <br>
+  <form id="formRetorno">
+    <div class="row">
+
+      <div class="col-4">
+        <label for="consulta">Consulta Pai:</label>
+        <input type="text" [(ngModel)]="consulta.consulta" placeholder="Consulta" name="consulta" class="form-control"
+               id="consulta" required="required">
+      </div>
+
+      <div class="col-4">
+        <label for="veterinario">Veterinário:</label>
+        <input type="text" [(ngModel)]="consulta.veterinario" placeholder="Veterinário" name="veterinario" class="form-control"
+               id="veterinario" required="required">
+      </div>
+
+      <div class="col-6">
+        <label for="animal">Animal:</label>
+        <input type="text" [(ngModel)]="consulta.animal" placeholder="Animal" name="animal" class="form-control"
+               id="animal" required>
+      </div>
+
+      <div class="col-4">
+        <label for="dataMarcada">Data Marcada:</label>
+        <input type="date" [(ngModel)]="consulta.dataMarcada" placeholder="Data Marcada" name="dataMarcada" class="form-control"
+               id="dataMarcada" required>
+      </div>
+
+      <div class="col-4">
+        <label for="registro">Registro:</label>
+        <input type="text" [(ngModel)]="consulta.registro" placeholder="Registro" name="registro" class="form-control" id="registro"
+               required>
+      </div>
+
+      <div class="col-4">
+        <label for="procedimento">Procedimento:</label>
+        <input type="text" [(ngModel)]="consulta.procedimento" placeholder="Procedimento" name="procedimento" class="form-control" id="procedimento"
+               required>
+      </div>
+
+    </div>
+    <br>
+
+    <button class="btn btn-success" (click)="createRetorno(formRetorno)">Cadastrar</button>
+  </form>
+</div>
+
