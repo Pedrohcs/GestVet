@@ -16,6 +16,9 @@ import { AnimalComponent } from './funcionalidades/crud/animal/animal.component'
 import { MedicamentoComponent } from './funcionalidades/crud/medicamento/medicamento.component';
 import {MedicamentoService} from './services/medicamento.service';
 import { CriarMedicamentoComponent } from './funcionalidades/crud/medicamento/criar-medicamento/criar-medicamento.component';
+import { ConsultaComponent } from './funcionalidades/crud/consulta/consulta.component';
+import { RetornoComponent } from './funcionalidades/crud/retorno/retorno.component';
+import { CriarRetornoComponent } from './funcionalidades/crud/retorno/criar-retorno/criar-retorno.component';
 
 const appRoutes: Routes = [
   {
@@ -61,7 +64,10 @@ const appRoutes: Routes = [
     CriarAnimalComponent,
     AnimalComponent,
     MedicamentoComponent,
-    CriarMedicamentoComponent
+    CriarMedicamentoComponent,
+    ConsultaComponent,
+    RetornoComponent,
+    CriarRetornoComponent
   ],
   imports: [
     BrowserModule,
