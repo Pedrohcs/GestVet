@@ -19,6 +19,8 @@ import { CriarMedicamentoComponent } from './funcionalidades/crud/medicamento/cr
 import { ConsultaComponent } from './funcionalidades/crud/consulta/consulta.component';
 import { RetornoComponent } from './funcionalidades/crud/retorno/retorno.component';
 import { CriarRetornoComponent } from './funcionalidades/crud/retorno/criar-retorno/criar-retorno.component';
+import { ConsultaService } from './services/consulta.service';
+import { CriarConsultaComponent } from './funcionalidades/crud/consulta/criar-consulta/criar-consulta.component';
 
 const appRoutes: Routes = [
   {
@@ -51,6 +53,14 @@ const appRoutes: Routes = [
     component: CriarMedicamentoComponent
   },
   {
+    path: 'user/marcar-retorno',
+    component: CriarRetornoComponent
+  },
+  {
+    path: 'user/marcar-consulta',
+    component: CriarConsultaComponent
+  },
+  {
     path: '**',
     component: LoginComponent
   }
@@ -67,7 +77,8 @@ const appRoutes: Routes = [
     CriarMedicamentoComponent,
     ConsultaComponent,
     RetornoComponent,
-    CriarRetornoComponent
+    CriarRetornoComponent,
+    CriarConsultaComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +86,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, MedicamentoService],
+  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, MedicamentoService, ConsultaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

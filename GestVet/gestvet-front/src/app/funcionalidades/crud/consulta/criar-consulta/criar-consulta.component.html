@@ -1,21 +1,9 @@
 <app-user></app-user>
 <div class="container">
-    <h2 class="text-center">Cadastrar Retorno</h2>
+    <h2 class="text-center">Cadastrar Consulta</h2>
     <br>
-    <form id="formRetorno">
+    <form id="formConsulta">
         <div class="row">
-
-            <!-- <div class="col-4">
-                <label for="consulta">Consulta Pai:</label>
-                <input type="number" [(ngModel)]="consulta.consulta" placeholder="Código da Consulta" name="consulta" class="form-control" id="consulta" required="required">
-            </div> -->
-
-            <div class="col-4">
-                <label for="consulta">Consulta Pai:</label>
-                <select type="number" [(ngModel)]="consulta.consulta" placeholder="Código da Consulta" name="consulta" class="form-control" id="consulta" required>
-                    <option *ngFor="let type of consultas;"> {{type.id}} </option>
-                </select>
-            </div>
 
             <div class="col-8">
                 <label for="veterinario">Veterinário:</label>
@@ -29,7 +17,7 @@
                 <input type="date" [(ngModel)]="consulta.dataMarcada" placeholder="Data Marcada" name="dataMarcada" class="form-control" id="dataMarcada" required>
             </div>
 
-            <div class="col-4">
+            <div class="col-8">
                 <label for="animal">Animal:</label>
                 <select type="text" [(ngModel)]="consulta.animal" placeholder="Animal" name="animal" class="form-control" id="animal" required>
                     <option *ngFor="let type of animais;"> {{type.nome}} </option>
@@ -39,7 +27,7 @@
             <div class="col-4">
                 <label for="procedimento">Procedimento:</label>
                 <select type="text" [(ngModel)]="consulta.procedimento" name="procedimento" class="form-control" id="procedimento" required>
-                    <option *ngFor="let type of Procedimento.values();"> {{type}} </option>
+                    <option *ngFor="let type of Procedimento.values() ;"> {{type}} </option>
                 </select>
             </div>
 
@@ -50,6 +38,6 @@
         </div>
         <br>
 
-        <button class="btn btn-success" (click)="createRetorno(formRetorno)">Cadastrar</button>
+        <button class="btn btn-success" (click)="createConsulta(formConsulta)">Cadastrar</button>
     </form>
 </div>

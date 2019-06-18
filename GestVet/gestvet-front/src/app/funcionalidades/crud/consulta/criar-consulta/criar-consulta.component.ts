@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Consulta } from '../../../../models/consulta.model';
 import { ConsultaService } from '../../../../services/consulta.service';
-import { Procedimento } from '../../../../models/procedimento.model';
-import { UserService } from '../../../../services/user.service';
-import { User } from '../../../../models/user.model';
 import { AnimaisService } from '../../../../services/animais.service';
+import { UserService } from '../../../../services/user.service';
+import { Consulta } from '../../../../models/consulta.model';
+import { Procedimento } from '../../../../models/procedimento.model';
+import { User } from '../../../../models/user.model';
 import { Animal } from '../../../../models/animal.model';
 
 @Component({
-  selector: 'app-criar-retorno',
-  templateUrl: './criar-retorno.component.html',
-  styleUrls: ['./criar-retorno.component.scss'],
+  selector: 'app-criar-consulta',
+  templateUrl: './criar-consulta.component.html',
+  styleUrls: ['./criar-consulta.component.scss'],
   providers: [UserService, AnimaisService, ConsultaService]
 })
-export class CriarRetornoComponent implements OnInit {
-  
+export class CriarConsultaComponent implements OnInit {
+
   consulta: Consulta = new Consulta();
   selectedValue = Procedimento.BANHO;
   Procedimento = Procedimento;
@@ -25,7 +25,6 @@ export class CriarRetornoComponent implements OnInit {
   constructor(private consultaService: ConsultaService, private userService: UserService, private animaisService: AnimaisService) {}
 
   ngOnInit() {
-    this.consulta.retorno = true; 
     this.consultaService.getConsultas()
       .subscribe(data => {
         this.consultas = data;
@@ -40,23 +39,24 @@ export class CriarRetornoComponent implements OnInit {
     });
   }
 
-  createRetorno(): void {
+  createConsulta(): void {
+    this.consulta.retorno = false; 
+    this.consulta.realizado = false;
     if(this.consulta.veterinario == null ||
-      this.consulta.animal == null ||
-      this.consulta.dataMarcada == null ||
-      this.consulta.registro == (null || '') ||
-      this.consulta.realizado == null ||
-      this.consulta.retorno == null ||
-      this.consulta.consultaOrigem == null ||
-      this.consulta.procedimento == null ) {
-      alert('Todos os campos devem ser preenchidos');
-      return;
-    }
+    this.consulta.animal == null ||
+    this.consulta.dataMarcada == null ||
+    this.consulta.registro == (null || '') ||
+    this.consulta.realizado == null ||
+    this.consulta.procedimento == null ) {
+    alert('Todos os campos devem ser preenchidos');
+    alert(this.consulta.animal);
+    return;
+  }
 
-    this.consultaService.createConsulta(this.consulta)
+  this.consultaService.createConsulta(this.consulta)
       .subscribe(data => {
-        alert("Retorno cadastrado com sucesso.");
-        (document.getElementById("formRetorno") as HTMLFormElement).reset();
+        alert("Consulta cadastrada com sucesso.");
+        (document.getElementById("formConsulta") as HTMLFormElement).reset();
       });
   }
 
