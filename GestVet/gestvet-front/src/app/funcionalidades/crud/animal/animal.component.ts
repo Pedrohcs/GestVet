@@ -32,7 +32,6 @@ export class AnimalComponent implements OnInit {
   }
 
   updateAnimal(): void {
-
     console.log(this.animalUpdate);
     this.animalService.updateAnimal(this.animalUpdate)
       .subscribe(data => {
@@ -42,7 +41,7 @@ export class AnimalComponent implements OnInit {
   }
 
   deletarAnimal(animal: Animal): void {
-
+    console.log(this.animal);
     this.animalService.deleteAnimal(animal)
       .subscribe(data => {
         this.animais = this.animais.filter(u => u !== animal);

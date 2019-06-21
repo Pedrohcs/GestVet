@@ -20,7 +20,13 @@ public class MedicamentoController {
     }
 
     @GetMapping(path = {"/{id}"})
+    public Medicamento findById(@PathVariable("id") Long id){
+        return medicamentoService.findById(id);
+    }
+
+    @PutMapping(path = {"/{id}"})
     public Medicamento update(@PathVariable("id") Long id, @RequestBody Medicamento medicamento){
+        medicamento.setId(id);
         return medicamentoService.update(medicamento);
     }
 

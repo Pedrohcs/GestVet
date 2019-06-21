@@ -1,3 +1,159 @@
-<p>
-  consulta works!
-</p>
+<app-user></app-user>
+<div>
+    <h2>Consultas</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th class="cl-2">Vaterinário</th>
+                <th class="cl-2">Animal</th>
+                <th class="cl-1">Data</th>
+                <th class="cl-1">Procedimento</th>
+                <th class="cl-1">Tipo</th>
+                <th class="cl-1">Consulta Pai</th>
+                <th class="cl-1">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let consulta of consultas">
+                <td style=" text-align: center">{{consulta.id}}</td>
+                <td>{{consulta.veterinario.name}}</td>
+                <td>{{consulta.animal.nome}}</td>
+                <td>{{consulta.dataMarcada | date:'yyyy-MM-dd'}}</td>
+                <td>{{consulta.procedimento}}</td>
+                <td *ngIf='consulta.retorno'>Retorno</td>
+                <td *ngIf='!consulta.retorno'>Consulta</td>
+                <td *ngIf='consulta.consultaOrigem' style=" text-align: center">{{consulta.consultaOrigem.id}}</td>
+                <td *ngIf='!consulta.consultaOrigem'></td>
+                <td *ngIf='consulta.realizado'>Realizada</td>
+                <td *ngIf='!consulta.realizado'>Não Realizada</td>
+                <td style="width: 20%">
+                    <div>
+                        <button class="btn btn-info" (click)="findOneById = consulta" data-toggle="modal" data-target="#modalVer">
+                        Ver
+                        </button>
+
+                        <button type="button" class="btn btn-primary" (click)="editar(consulta);" data-toggle="modal" data-target="#modalEditar">
+                        Editar
+                        </button>
+                        <button class="btn btn-danger" (click)="deletarConsulta(consulta)"> Deletar</button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal Consulta-->
+<div class="modal fade" id="modalVer" tabindex="-1" role="dialog" aria-labelledby="modalVerTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalVerTitle">Consulta</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div *ngIf="findOneById != null" class="modal-body">
+                <p><b>ID:</b> {{findOneById.id}}</p>
+                <div *ngIf='findOneById.retorno'>
+                    <p><b>Consulta Pai:</b> {{findOneById.consultaOrigem.id}}</p>
+                </div>
+                <p><b>Veterinário:</b> {{findOneById.veterinario.name}}</p>
+                <p><b>Animal:</b> {{findOneById.animal.nome}}</p>
+                <p><b>Data:</b> {{findOneById.dataMarcada | date:'yyyy-MM-dd'}}</p>
+                <p><b>Procedimento:</b> {{findOneById.procedimento}}</p>
+                <p><b>Status:</b>
+                    <p *ngIf='consulta.realizado'>Realizada</p>
+                    <p *ngIf='!consulta.realizado'>Não Realizada</p>
+                    <p><b>Registro:</b> {{findOneById.registro}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalEditarTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarTitle">Animal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="findOneById != null" class="modal-body">
+                    <p><b>ID:</b> {{findOneById.id}}</p>
+                    <div *ngIf='findOneById.retorno'>
+                        <p><b>Consulta Pai:</b> {{findOneById.consultaOrigem.id}}</p>
+                    </div>
+                    <p><b>Veterinário:</b> {{findOneById.veterinario.name}}</p>
+                    <p><b>Animal:</b> {{findOneById.animal.nome}}</p>
+                    <p><b>Data:</b> {{findOneById.dataMarcada | date:'yyyy-MM-dd'}}</p>
+                    <p><b>Procedimento:</b> {{findOneById.procedimento}}</p>
+                    <p><b>Status:</b>
+                        <p *ngIf='consulta.realizado'>Realizada</p>
+                        <p *ngIf='!consulta.realizado'>Não Realizada</p>
+                        <p><b>Registro:</b> {{findOneById.registro}}</p>
+                </div>
+                <hr>
+                <h3 align="center">Editar</h3>
+                <div>
+                    <form>
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="veterinario">Veterinário:</label>
+                                <select type="text" [(ngModel)]="consultaUpdate.veterinario" name="veterinario" class="form-control" id="veterinario" required>
+                                    <option [ngValue]="consultaUpdate.veterinario" disabled selected>{{consultaUpdate.veterinario.name}}</option>
+                                    <option *ngFor="let type of veterinarios;" [ngValue]="type"> {{type.name}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="animal">Animal:</label>
+                                <select type="text" [(ngModel)]="consultaUpdate.animal" name="animal" class="form-control" id="animal" required>
+                                        <option [ngValue]="consultaUpdate.animal" disabled selected>{{consultaUpdate.animal.nome}}</option>
+                                        <option *ngFor="let type of animais;" [ngValue]="type"> {{type.nome}} </option>
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="procedimento">Procedimento:</label>
+                                <select type="text" [(ngModel)]="consultaUpdate.procedimento" name="procedimento" class="form-control" id="procedimento" required>
+                                        <option disabled selected>{{consultaUpdate.procedimento}}</option>
+                                        <option *ngFor="let type of Procedimento.values();"> {{type}} </option>
+                                </select>
+                            </div>
+
+                            <div class="col-6">
+                                <label for="dataMarcada">Data Marcada:</label>
+                                <input type="date" [(ngModel)]="consultaUpdate.dataMarcada" placeholder="Data Marcada" name="dataMarcada" class="form-control" id="dataMarcada" required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="registro">Registro:</label>
+                                <textarea class="form-control" placeholder="Registro" [(ngModel)]="consultaUpdate.registro" rows="3" name="registro" id="registro" required></textarea>
+                            </div>
+                            <div class="col-2">
+                                <b for="realizado">Realizado?:</b>
+                                <input type="checkbox" class="form-control" [(ngModel)]="consultaUpdate.realizado" name="registro" id="registro" required/>
+                            </div>
+
+                        </div>
+                        <br>
+                        <button class="btn btn-success" (click)="updateConsulta()">Editar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+            </div>
+        </div>
+    </div>
+</div>

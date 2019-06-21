@@ -5,22 +5,17 @@
     <form id="formRetorno">
         <div class="row">
 
-            <!-- <div class="col-4">
-                <label for="consulta">Consulta Pai:</label>
-                <input type="number" [(ngModel)]="consulta.consulta" placeholder="Código da Consulta" name="consulta" class="form-control" id="consulta" required="required">
-            </div> -->
-
             <div class="col-4">
                 <label for="consulta">Consulta Pai:</label>
-                <select type="number" [(ngModel)]="consulta.consulta" placeholder="Código da Consulta" name="consulta" class="form-control" id="consulta" required>
-                    <option *ngFor="let type of consultas;"> {{type.id}} </option>
+                <select type="number" [(ngModel)]="retorno" placeholder="Código da Consulta" name="consulta" class="form-control" id="consulta" required>
+                    <option *ngFor="let type of consultas;" [value]="type.id"> {{type.id}} </option>
                 </select>
             </div>
 
             <div class="col-8">
                 <label for="veterinario">Veterinário:</label>
-                <select type="text" [(ngModel)]="consulta.veterinario" name="veterinario" class="form-control" id="veterinario" required>
-                    <option *ngFor="let type of veterinarios;"> {{type.name}} </option>
+                <select type="text" [(ngModel)]="user" name="veterinario" class="form-control" id="veterinario" required>
+                    <option *ngFor="let type of veterinarios;" [value]="type.id"> {{type.name}} </option>
                 </select>
             </div>
 
@@ -31,8 +26,8 @@
 
             <div class="col-4">
                 <label for="animal">Animal:</label>
-                <select type="text" [(ngModel)]="consulta.animal" placeholder="Animal" name="animal" class="form-control" id="animal" required>
-                    <option *ngFor="let type of animais;"> {{type.nome}} </option>
+                <select type="text" [(ngModel)]="animal" placeholder="Animal" name="animal" class="form-control" id="animal" required>
+                    <option *ngFor="let type of animais;" [value]="type.id"> {{type.nome}} </option>
                 </select>
             </div>
 

@@ -16,9 +16,10 @@ import { Animal } from '../../../../models/animal.model';
 export class CriarConsultaComponent implements OnInit {
 
   consulta: Consulta = new Consulta();
-  selectedValue = Procedimento.BANHO;
   Procedimento = Procedimento;
   veterinarios : User[];
+  animal : number;
+  user : number;
   animais : Animal[];
   consultas :  Consulta[];
 
@@ -40,6 +41,8 @@ export class CriarConsultaComponent implements OnInit {
   }
 
   createConsulta(): void {
+    this.consulta.animal.id = this.animal;
+    this.consulta.veterinario.id = this.user;
     this.consulta.retorno = false; 
     this.consulta.realizado = false;
     if(this.consulta.veterinario == null ||
@@ -49,10 +52,10 @@ export class CriarConsultaComponent implements OnInit {
     this.consulta.realizado == null ||
     this.consulta.procedimento == null ) {
     alert('Todos os campos devem ser preenchidos');
-    alert(this.consulta.animal);
     return;
   }
 
+  
   this.consultaService.createConsulta(this.consulta)
       .subscribe(data => {
         alert("Consulta cadastrada com sucesso.");

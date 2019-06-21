@@ -61,6 +61,10 @@ const appRoutes: Routes = [
     component: CriarConsultaComponent
   },
   {
+    path: 'user/consultas',
+    component: ConsultaComponent
+  },
+  {
     path: '**',
     component: LoginComponent
   }
