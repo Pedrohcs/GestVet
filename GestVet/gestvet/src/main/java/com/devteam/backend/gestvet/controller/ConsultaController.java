@@ -21,9 +21,14 @@ public class ConsultaController {
         }
 
         @GetMapping(path = {"/{id}"})
-        public Consulta upgrade(@PathVariable("id") Long id, @RequestBody Consulta consulta){
+        public Consulta findById(@PathVariable("id") Long id){
+        return consultaService.findById(id);
+    }
+
+        @PutMapping(path = {"/{id}"})
+        public Consulta update(@PathVariable("id") Long id, @RequestBody Consulta consulta){
             consulta.setId(id);
-            return consultaService.upgrade(consulta);
+            return consultaService.update(consulta);
         }
 
         @DeleteMapping(path = {"/{id}"})

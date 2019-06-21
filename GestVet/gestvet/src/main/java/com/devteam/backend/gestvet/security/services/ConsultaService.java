@@ -14,5 +14,5 @@ public interface ConsultaService {
 
     Consulta findById(Long id);
 
-    Consulta upgrade(Consulta consulta);
+    Consulta update(Consulta consulta);
 }

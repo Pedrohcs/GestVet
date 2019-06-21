@@ -37,7 +37,7 @@ public class ConsultaServiceImpl implements ConsultaService {
     }
 
     @Override
-    public Consulta upgrade(Consulta consulta) {
+    public Consulta update(Consulta consulta) {
         return repository.save(consulta);
     }
 }

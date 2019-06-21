@@ -6,6 +6,7 @@ import { UserService } from '../../../../services/user.service';
 import { User } from '../../../../models/user.model';
 import { AnimaisService } from '../../../../services/animais.service';
 import { Animal } from '../../../../models/animal.model';
+import { Retorno } from '../../../../models/retorno.model';
 
 @Component({
   selector: 'app-criar-retorno',
@@ -15,17 +16,19 @@ import { Animal } from '../../../../models/animal.model';
 })
 export class CriarRetornoComponent implements OnInit {
   
-  consulta: Consulta = new Consulta();
+  consulta: Retorno = new Retorno();
   selectedValue = Procedimento.BANHO;
   Procedimento = Procedimento;
   veterinarios : User[];
   animais : Animal[];
   consultas :  Consulta[];
+  user: number;
+  retorno: number;
+  animal: number;
 
   constructor(private consultaService: ConsultaService, private userService: UserService, private animaisService: AnimaisService) {}
 
   ngOnInit() {
-    this.consulta.retorno = true; 
     this.consultaService.getConsultas()
       .subscribe(data => {
         this.consultas = data;
@@ -41,6 +44,9 @@ export class CriarRetornoComponent implements OnInit {
   }
 
   createRetorno(): void {
+    this.consulta.animal.id = this.animal;
+    this.consulta.consultaOrigem.id = this.retorno;
+    this.consulta.veterinario.id = this.user;
     if(this.consulta.veterinario == null ||
       this.consulta.animal == null ||
       this.consulta.dataMarcada == null ||

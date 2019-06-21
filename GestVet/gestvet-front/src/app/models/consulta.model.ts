@@ -9,6 +9,19 @@ export class Consulta {
     registro: string;
     realizado: Boolean;
     retorno: Boolean;
-    consultaOrigem: Consulta;
+    consultaOrigem: any;
     procedimento: Procedimento;
+
+    constructor() {
+        this.id = null;
+        this.veterinario = new User();
+        this.animal = new Animal();
+        this.dataMarcada = null;
+        this.realizado = false;
+        this.registro = null;
+        this.retorno = false;
+        this.consultaOrigem = null;
+        this.procedimento = null;
+    }
+
 }

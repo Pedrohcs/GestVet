@@ -40,7 +40,6 @@ public class Consulta {
     @Column(length = 60)
     private Procedimento procedimento;
 
-
     public Consulta() {
     }
 
@@ -98,5 +97,21 @@ public class Consulta {
 
     public void setRetorno(boolean retorno) {
         this.retorno = retorno;
+    }
+
+    public Consulta getConsultaOrigem() {
+        return consultaOrigem;
+    }
+
+    public void setConsultaOrigem(Consulta consultaOrigem) {
+        this.consultaOrigem = consultaOrigem;
+    }
+
+    public Procedimento getProcedimento() {
+        return procedimento;
+    }
+
+    public void setProcedimento(Procedimento procedimento) {
+        this.procedimento = procedimento;
     }
 }
