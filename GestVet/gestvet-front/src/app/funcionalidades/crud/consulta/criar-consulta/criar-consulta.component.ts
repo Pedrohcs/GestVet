@@ -34,7 +34,7 @@ export class CriarConsultaComponent implements OnInit {
       .subscribe(data => {
         this.animais = data;
     });
-    this.userService.getUsers()
+    this.userService.getVeters()
       .subscribe(data => {
         this.veterinarios = data;
     });

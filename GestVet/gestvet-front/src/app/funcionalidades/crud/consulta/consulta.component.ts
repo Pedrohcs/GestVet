@@ -7,7 +7,6 @@ import { User } from '../../../models/user.model';
 import { Animal } from '../../../models/animal.model';
 import { DatePipe } from '@angular/common';
 import { Procedimento } from '../../../models/procedimento.model';
-import { FormGroup, FormControl } from '@angular/forms';
 
 
 @Component({
@@ -30,7 +29,7 @@ export class ConsultaComponent implements OnInit {
   findOneById: Consulta =  new Consulta();
 
   constructor(private consultaService: ConsultaService, private userService: UserService, 
-    private animaisService: AnimaisService, public datepipe: DatePipe) { }
+    private animaisService: AnimaisService, public datepipe: DatePipe) {}
 
   ngOnInit() {
     this.consultaService.getConsultas()
@@ -41,7 +40,7 @@ export class ConsultaComponent implements OnInit {
       .subscribe(data => {
         this.animais = data;
     });
-    this.userService.getUsers()
+    this.userService.getVeters()
       .subscribe(data => {
         this.veterinarios = data;
     });

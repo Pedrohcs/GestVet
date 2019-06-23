@@ -37,7 +37,7 @@ export class CriarRetornoComponent implements OnInit {
       .subscribe(data => {
         this.animais = data;
     });
-    this.userService.getUsers()
+    this.userService.getVeters()
       .subscribe(data => {
         this.veterinarios = data;
     });

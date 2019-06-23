@@ -17,8 +17,7 @@ import { MedicamentoComponent } from './funcionalidades/crud/medicamento/medicam
 import {MedicamentoService} from './services/medicamento.service';
 import { CriarMedicamentoComponent } from './funcionalidades/crud/medicamento/criar-medicamento/criar-medicamento.component';
 import { ConsultaComponent } from './funcionalidades/crud/consulta/consulta.component';
-import { RetornoComponent } from './funcionalidades/crud/retorno/retorno.component';
-import { CriarRetornoComponent } from './funcionalidades/crud/retorno/criar-retorno/criar-retorno.component';
+import { CriarRetornoComponent } from './funcionalidades/crud/consulta/criar-retorno/criar-retorno.component';
 import { ConsultaService } from './services/consulta.service';
 import { CriarConsultaComponent } from './funcionalidades/crud/consulta/criar-consulta/criar-consulta.component';
 
@@ -37,32 +36,39 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'user/adicionar-animal',
-    component: CriarAnimalComponent
+    path: 'animal/adicionar-animal',
+    component: CriarAnimalComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/animal',
-    component: AnimalComponent
+    path: 'animal',
+    component: AnimalComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/medicamento',
-    component: MedicamentoComponent
+    path: 'medicamento',
+    component: MedicamentoComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/adicionar-medicamento',
-    component: CriarMedicamentoComponent
+    path: 'medicamento/adicionar-medicamento',
+    component: CriarMedicamentoComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/marcar-retorno',
-    component: CriarRetornoComponent
+    path: 'consultas/marcar-retorno',
+    component: CriarRetornoComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/marcar-consulta',
-    component: CriarConsultaComponent
+    path: 'consultas/marcar-consulta',
+    component: CriarConsultaComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/consultas',
-    component: ConsultaComponent
+    path: 'consultas',
+    component: ConsultaComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: '**',
@@ -80,7 +86,6 @@ const appRoutes: Routes = [
     MedicamentoComponent,
     CriarMedicamentoComponent,
     ConsultaComponent,
-    RetornoComponent,
     CriarRetornoComponent,
     CriarConsultaComponent
   ],

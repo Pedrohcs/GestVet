@@ -81,27 +81,13 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalEditarTitle">Animal</h5>
+                <h5 class="modal-title" id="modalEditarTitle">Consulta</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div *ngIf="findOneById != null" class="modal-body">
-                    <p><b>ID:</b> {{findOneById.id}}</p>
-                    <div *ngIf='findOneById.retorno'>
-                        <p><b>Consulta Pai:</b> {{findOneById.consultaOrigem.id}}</p>
-                    </div>
-                    <p><b>Veterinário:</b> {{findOneById.veterinario.name}}</p>
-                    <p><b>Animal:</b> {{findOneById.animal.nome}}</p>
-                    <p><b>Data:</b> {{findOneById.dataMarcada | date:'yyyy-MM-dd'}}</p>
-                    <p><b>Procedimento:</b> {{findOneById.procedimento}}</p>
-                    <p><b>Status:</b>
-                        <p *ngIf='consulta.realizado'>Realizada</p>
-                        <p *ngIf='!consulta.realizado'>Não Realizada</p>
-                        <p><b>Registro:</b> {{findOneById.registro}}</p>
-                </div>
-                <hr>
+                <br>
                 <h3 align="center">Editar</h3>
                 <div>
                     <form>
@@ -140,9 +126,14 @@
                                 <label for="registro">Registro:</label>
                                 <textarea class="form-control" placeholder="Registro" [(ngModel)]="consultaUpdate.registro" rows="3" name="registro" id="registro" required></textarea>
                             </div>
-                            <div class="col-2">
+                            <div class="col-4">
                                 <b for="realizado">Realizado?:</b>
-                                <input type="checkbox" class="form-control" [(ngModel)]="consultaUpdate.realizado" name="registro" id="registro" required/>
+                                <select type="text" [(ngModel)]="consultaUpdate.realizado" name="realizado" class="form-control" id="realizado" required>
+                                    <option disabled selected *ngIf='consultaUpdate.realizado;'>Realizado</option>
+                                    <option disabled selected *ngIf='!consultaUpdate.realizado;'>Não Realizado</option>
+                                    <option value="false">Não Realizado</option>
+                                    <option value="true">Realizado</option>
+                                </select>
                             </div>
 
                         </div>

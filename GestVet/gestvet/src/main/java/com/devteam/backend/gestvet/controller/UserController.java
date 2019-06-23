@@ -12,32 +12,38 @@ import java.util.List;
 @RequestMapping({"/api/users"})
 public class UserController {
 
-        @Autowired
-        private UserService userService;
+    @Autowired
+    private UserService userService;
 
-        @PostMapping
-        public User create(@RequestBody User user){
-            return userService.create(user);
-        }
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return userService.create(user);
+    }
 
-        @PutMapping(path = {"/{id}"})
-        public User upgrade(@PathVariable("id") Long id, @RequestBody User user){
-            user.setId(id);
-            return userService.upgrade(user);
-        }
+    @PutMapping(path = {"/{id}"})
+    public User update(@PathVariable("id") Long id, @RequestBody User user) {
+        user.setId(id);
+        return userService.update(user);
+    }
 
-        @GetMapping(path = {"/{id}"})
-        public User findById(@PathVariable("id") Long id){
-            return userService.findById(id).get();
-        }
+    @GetMapping(path = {"/{id}"})
+    public User findById(@PathVariable("id") Long id) {
+        return userService.findById(id).get();
+    }
 
-        @GetMapping(path = {"/{name}"})
-        public User findByName(@PathVariable("name") String name){
+    @GetMapping(path = {"/{name}"})
+    public User findByName(@PathVariable("name") String name) {
         return userService.findByName(name);
     }
 
-        @GetMapping
-        public List<User> findAll(){
-            return userService.findAll();
-        }
+    @GetMapping
+    public List<User> findAll() {
+        return userService.findAll();
+    }
+
+
+    @GetMapping(path = {"/vet"})
+    public List<User> findAllVet() {
+        return userService.findByCrmvIsNotNull();
+    }
 }

@@ -20,6 +20,10 @@ export class UserService {
     return this.http.get<User[]>(this.baseUrl, { headers: this.headers });
   }
 
+  getVeters() {
+    return this.http.get<User[]>(this.baseUrl + 'vet', { headers: this.headers });
+  }
+
   createUser(user) {
     return this.http.post<User>(this.baseUrl, user, { headers: this.headers });
   }

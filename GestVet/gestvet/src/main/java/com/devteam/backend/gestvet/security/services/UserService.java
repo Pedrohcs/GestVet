@@ -15,5 +15,7 @@ public interface UserService {
 
     User findByName(String name);
 
-    User upgrade(User user);
+    User update(User user);
+
+    List<User> findByCrmvIsNotNull();
 }

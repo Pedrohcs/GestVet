@@ -1,5 +1,6 @@
 package com.devteam.backend.gestvet.repository;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.devteam.backend.gestvet.model.User;
@@ -15,4 +16,5 @@ public interface UserRepository extends JpaRepository<User, Long> {
     User findByName(String name);
     Boolean existsByUsername(String username);
     Boolean existsByEmail(String email);
+    List<User> findByCrmvIsNotNull();
 }
