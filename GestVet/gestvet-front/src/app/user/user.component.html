@@ -1,66 +1,53 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="/user">GestVet</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-    aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Animal</a>
+        <a class="nav-link dropdown-toggle" href="/animal" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Animal</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="btn dropdown-item" routerLink="/user/adicionar-animal">Cadastrar Animal</a>
-          <a class="btn dropdown-item" routerLink="/user/animal">Ver Animais</a>
+          <a class="btn dropdown-item" routerLink="/animal/adicionar-animal">Cadastrar Animal</a>
+          <a class="btn dropdown-item" routerLink="/animal">Ver Animais</a>
         </div>
       </li>
       <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Medicamento</a>
+        <a class="nav-link dropdown-toggle" href="/medicamento" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Medicamento</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="btn dropdown-item" routerLink="/user/adicionar-medicamento">Cadastrar Medicamento</a>
-          <a class="btn dropdown-item" routerLink="/user/medicamento">Ver Medicamentos</a>
-          <a class="btn dropdown-item" routerLink="">Pesquisar Medicamentos</a>
+          <a class="btn dropdown-item" routerLink="/medicamento/adicionar-medicamento">Cadastrar Medicamento</a>
+          <a class="btn dropdown-item" routerLink="/medicamento">Ver Medicamentos</a>
         </div>
       </li>
       <li class="nav-item active dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Veterinário</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Veterinário</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="btn dropdown-item" routerLink="">Cadastrar Veterinário</a>
           <a class="btn dropdown-item" routerLink="">Ver Veterinários</a>
           <a class="btn dropdown-item" routerLink="">Pesquisar Veterinário</a>
         </div>
       </li>
-      <li class="nav-item inactive dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Consulta/Retorno</a>
-         <div class="dropdown-menu" aria-labelledby="dropdown01">
-            <a class="btn dropdown-item" routerLink="/user/marcar-consulta">Marcar Consulta</a>
-            <a class="btn dropdown-item" routerLink="">Marcar Retorno</a>
-            <a class="btn dropdown-item" routerLink="/user/listar-consultas">Pesquisar Consulta/Retorno</a>
-          </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-           aria-expanded="false">Vendas</a>
-        <div class="dropdown-menu">
-          <a class="btn dropdown-item" routerLink="/user/realizar-venda">Realizar venda</a>
-          <a class="btn dropdown-item" routerLink="/user/consultar-venda">Histórico de vendas</a>
+      <li class="nav-item active dropdown">
+        <a class="nav-link dropdown-toggle" href="/consultas" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Consulta/Retorno</a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="btn dropdown-item" routerLink="/consultas/marcar-consulta">Marcar Consulta</a>
+          <a class="btn dropdown-item" routerLink="/consultas/marcar-retorno">Marcar Retorno</a>
+          <a class="btn dropdown-item" routerLink="/consultas">Pesquisar Consulta/Retorno</a>
         </div>
       </li>
     </ul>
     <form class="form-inline">
-        <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {{user?.name}}
-            </button>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">{{user?.username}}</a>
-              <a class="dropdown-item" href="#">{{user?.email}}</a>
-              <a style="background-color: crimson; color: white;" class="dropdown-item" href="#" (click)="logout()">Log Out</a>
-            </div>
-          </div>
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{user?.name}}
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="#">{{user?.username}}</a>
+          <a class="dropdown-item" href="#">{{user?.email}}</a>
+          <a style="background-color: crimson; color: white;" class="dropdown-item" href="#" (click)="logout()">Log Out</a>
+        </div>
+      </div>
     </form>
   </div>
 </nav>

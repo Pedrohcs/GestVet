@@ -13,5 +13,5 @@ public interface AnimalService {
 
     Animal findById(Long id);
 
-    Animal upgrade(Animal animal);
+    Animal update(Animal animal);
 }

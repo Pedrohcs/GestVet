@@ -20,7 +20,7 @@ public class MedicamentoController {
     }
 
     @PutMapping(path = {"/{id}"})
-    public Medicamento upgrade(@PathVariable("id") Long id, @RequestBody Medicamento medicamento) {
+    public Medicamento update(@PathVariable("id") Long id, @RequestBody Medicamento medicamento){
         medicamento.setId(id);
         return medicamentoService.update(medicamento);
     }

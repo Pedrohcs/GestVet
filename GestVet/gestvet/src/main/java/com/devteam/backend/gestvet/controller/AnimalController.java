@@ -20,9 +20,9 @@ public class AnimalController {
     }
 
     @PutMapping(path = {"/{id}"})
-    public Animal upgrade(@PathVariable("id") Long id, @RequestBody Animal animal){
+    public Animal update(@PathVariable("id") Long id, @RequestBody Animal animal){
         animal.setId(id);
-        return animalService.upgrade(animal);
+        return animalService.update(animal);
     }
 
     @GetMapping(path = {"/{id}"})

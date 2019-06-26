@@ -37,7 +37,7 @@ public class AnimalServiceImpl implements AnimalService{
     }
 
     @Override
-    public Animal upgrade(Animal animal) {
+    public Animal update(Animal animal) {
         return repository.save(animal);
     }
 }

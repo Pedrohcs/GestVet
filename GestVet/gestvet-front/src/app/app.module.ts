@@ -22,6 +22,10 @@ import { CriarMedicamentoComponent } from './funcionalidades/crud/medicamento/cr
 import {ListarConsultasComponent} from './funcionalidades/crud/consultas/listar-consultas/listar-consultas.component';
 import {ConsultasService} from './services/consultas.service';
 import {MarcarConsultaComponent} from './funcionalidades/crud/consultas/marcar-consulta/marcar-consulta.component';
+import { ConsultaComponent } from './funcionalidades/crud/consulta/consulta.component';
+import { CriarRetornoComponent } from './funcionalidades/crud/consulta/criar-retorno/criar-retorno.component';
+import { ConsultaService } from './services/consulta.service';
+import { CriarConsultaComponent } from './funcionalidades/crud/consulta/criar-consulta/criar-consulta.component';
 
 const appRoutes: Routes = [
   {
@@ -38,12 +42,14 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'user/adicionar-animal',
-    component: CriarAnimalComponent
+    path: 'animal/adicionar-animal',
+    component: CriarAnimalComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/animal',
-    component: AnimalComponent
+    path: 'animal',
+    component: AnimalComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user/realizar-venda',
@@ -55,11 +61,28 @@ const appRoutes: Routes = [
   },
   {
     path: 'user/medicamento',
-    component: MedicamentoComponent
+    component: MedicamentoComponent,
+    canActivate: [AuthGuardService]
   },
   {
-    path: 'user/adicionar-medicamento',
-    component: CriarMedicamentoComponent
+    path: 'medicamento/adicionar-medicamento',
+    component: CriarMedicamentoComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'consultas/marcar-retorno',
+    component: CriarRetornoComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'consultas/marcar-consulta',
+    component: CriarConsultaComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'consultas',
+    component: ConsultaComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user/listar-consultas',
@@ -87,7 +110,10 @@ const appRoutes: Routes = [
     MedicamentoComponent,
     CriarMedicamentoComponent,
     ListarConsultasComponent,
-    MarcarConsultaComponent
+    MarcarConsultaComponent,
+    ConsultaComponent,
+    CriarRetornoComponent,
+    CriarConsultaComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +121,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, VendasService, UsersService, MedicamentoService, ConsultasService],
+  providers: [AuthService, AuthGuardService, TokenStorage, AnimaisService, VendasService, UsersService,
+              MedicamentoService, ConsultaService, ConsultasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
