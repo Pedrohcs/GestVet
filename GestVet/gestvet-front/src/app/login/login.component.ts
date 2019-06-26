@@ -31,7 +31,7 @@ export class LoginComponent {
       data => {
         console.log(data);
         this.token.saveToken((data as token).accessToken);
-        this.router.navigate(['user']);
+        window.location.href = '/user';
       }
     );
   }
