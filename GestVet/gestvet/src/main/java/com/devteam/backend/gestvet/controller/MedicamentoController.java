@@ -19,9 +19,15 @@ public class MedicamentoController {
         return medicamentoService.create(medicamento);
     }
 
-    @GetMapping(path = {"/{id}"})
-    public Medicamento update(@PathVariable("id") Long id, @RequestBody Medicamento medicamento){
+    @PutMapping(path = {"/{id}"})
+    public Medicamento upgrade(@PathVariable("id") Long id, @RequestBody Medicamento medicamento) {
+        medicamento.setId(id);
         return medicamentoService.update(medicamento);
+    }
+
+    @GetMapping(path = {"/{id}"})
+    public Medicamento findById(@PathVariable("id") Long id) {
+        return medicamentoService.findById(id);
     }
 
     @DeleteMapping(path = {"/{id}"})
