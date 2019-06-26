@@ -52,15 +52,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'user/realizar-venda',
-    component: RealizarVendaComponent
-  },
-  {
-    path: 'user/consultar-venda',
-    component: ConsultarVendaComponent
-  },
-  {
-    path: 'user/medicamento',
+    path: 'medicamento',
     component: MedicamentoComponent,
     canActivate: [AuthGuardService]
   },
@@ -85,12 +77,12 @@ const appRoutes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: 'user/listar-consultas',
-    component: ListarConsultasComponent
+    path: 'user/realizar-venda',
+    component: RealizarVendaComponent
   },
   {
-    path: 'user/marcar-consulta',
-    component: MarcarConsultaComponent
+    path: 'user/consultar-venda',
+    component: ConsultarVendaComponent
   },
   {
     path: '**',
