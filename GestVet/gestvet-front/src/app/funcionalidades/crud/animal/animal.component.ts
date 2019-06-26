@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AnimaisService} from '../../../services/animais.service';
-import { Animal} from '../../../models/animal.model';
+import { Animal } from '../../../models/animal.model';
+import { Consulta } from '../../../models/consulta.model';
 
 @Component({
   selector: 'app-animal',
@@ -10,6 +11,7 @@ import { Animal} from '../../../models/animal.model';
 export class AnimalComponent implements OnInit {
 
   animais: Animal[];
+  consultas: Consulta[];
   animal: Animal = new Animal();
   animalUpdate: Animal = new Animal();
   findOneById: any;
@@ -28,6 +30,14 @@ export class AnimalComponent implements OnInit {
       .subscribe(data => {
         this.findOneById = data;
         this.animalUpdate = this.findOneById;
+      });
+  }
+
+  findHistory(animal: Animal): void {
+    this.consultas = [];
+    this.animalService.findHitory(animal)
+      .subscribe(data => {
+        this.consultas = data;
       });
   }
 

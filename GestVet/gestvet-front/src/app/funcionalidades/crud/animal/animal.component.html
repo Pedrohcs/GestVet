@@ -29,6 +29,10 @@
             Editar
           </button>
 
+                    <button  class="btn btn-warning" (click)="findHistory(animal)" data-toggle="modal" data-target="#modalHistori">
+            Historico
+          </button>
+
                     <button class="btn btn-danger" (click)="deletarAnimal(animal)"> Deletar</button>
                 </td>
             </tr>
@@ -110,6 +114,52 @@
                     </form>
                 </div>
             </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalHistori" tabindex="-1" role="dialog" aria-labelledby="modalHistoriTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalHistoriTitle">Histórico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th class="cl-2">Vaterinário</th>
+                        <th class="cl-1">Data</th>
+                        <th class="cl-1">Procedimento</th>
+                        <th class="cl-1">Tipo</th>
+                        <th class="col-6">Consulta Pai</th>
+                        <th class="cl-1">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let consulta of consultas">
+                        <td style=" text-align: center">{{consulta.id}}</td>
+                        <td>{{consulta.veterinario.name}}</td>
+                        <td>{{consulta.dataMarcada | date:'yyyy-MM-dd'}}</td>
+                        <td>{{consulta.procedimento}}</td>
+                        <td *ngIf='consulta.retorno'>Retorno</td>
+                        <td *ngIf='!consulta.retorno'>Consulta</td>
+                        <td *ngIf='consulta.consultaOrigem' style=" text-align: center">{{consulta.consultaOrigem.id}}</td>
+                        <td *ngIf='!consulta.consultaOrigem'></td>
+                        <td *ngIf='consulta.realizado'>Realizada</td>
+                        <td *ngIf='!consulta.realizado'>Não Realizada</td>
+                        <td style="width: 20%">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
             </div>

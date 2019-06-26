@@ -41,5 +41,7 @@ public class ConsultaController {
             return consultaService.findAll();
         }
 
+        @GetMapping(path = {"/historico/{idAnimal}"})
+        public List<Consulta> findByAnimal(@PathVariable("idAnimal") Long idAnimal){ return consultaService.findByAnimal(idAnimal); }
 
 }

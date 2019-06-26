@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Animal } from '../models/animal.model';
+import { Consulta } from '../models/consulta.model';
 import { TokenStorage } from './token.storage';
 
 @Injectable()
 export class AnimaisService {
 
   baseUrl = 'http://localhost:8080/api/animais/';
+  baseUrlConsulta = 'http://localhost:8080/api/consultas/historico/'
 
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -26,6 +28,10 @@ export class AnimaisService {
 
   public findOne(animal) {
     return this.http.get<Animal>(this.baseUrl + animal.id, { headers: this.headers });
+  }
+
+  public findHitory(animal) {
+    return this.http.get<Consulta[]>(this.baseUrlConsulta + animal.id, { headers: this.headers });
   }
 
   public updateAnimal(animal) {

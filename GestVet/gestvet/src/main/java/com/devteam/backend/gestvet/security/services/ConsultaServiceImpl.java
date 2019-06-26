@@ -1,7 +1,9 @@
 package com.devteam.backend.gestvet.security.services;
 
 import com.devteam.backend.gestvet.model.Consulta;
+import com.devteam.backend.gestvet.model.Animal;
 import com.devteam.backend.gestvet.repository.ConsultaRepository;
+import com.devteam.backend.gestvet.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +13,9 @@ import java.util.List;
 public class ConsultaServiceImpl implements ConsultaService {
     @Autowired
     private ConsultaRepository repository;
+
+    @Autowired
+    private AnimalRepository animalRepository;
 
     @Override
     public Consulta create(Consulta consulta) {
@@ -39,5 +44,11 @@ public class ConsultaServiceImpl implements ConsultaService {
     @Override
     public Consulta update(Consulta consulta) {
         return repository.save(consulta);
+    }
+
+    @Override
+    public List<Consulta> findByAnimal(Long idAnimal) {
+        Animal animal = animalRepository.findById(idAnimal);
+        return repository.findByAnimal(animal);
     }
 }
