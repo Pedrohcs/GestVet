@@ -1,0 +1,26 @@
+<app-user></app-user>
+<div>
+  <h2>Vendas realizadas</h2>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Data</th>
+      <th>Animal</th>
+      <th>Medicamento</th>
+      <th>Quantidade</th>
+      <th>Qtd.</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let venda of historicoVendas;">
+      <td>{{ venda.data }}</td>
+      <td>{{ venda.animal.nome }}</td>
+      <td>{{ venda.medicamento.nome }}</td>
+      <td>{{ venda.quantidade }}</td>
+      <td>{{ venda.vendedor.name }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

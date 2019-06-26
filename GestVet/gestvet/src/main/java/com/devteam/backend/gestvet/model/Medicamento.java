@@ -2,11 +2,11 @@ package com.devteam.backend.gestvet.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name = "medicamento", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "nome")
-})
+@Table(name = "Medicamento")
 public class Medicamento {
 
     @Id
@@ -21,11 +21,15 @@ public class Medicamento {
     private double preco;
     @Column
     private String dosagem;
+    @Column
+    private int quantidade;
 
-    public Medicamento(@NotBlank String nome, double preco, String dosagem) {
-        this.nome = nome;
-        this.preco = preco;
-        this.dosagem = dosagem;
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     public long getId() {
@@ -58,5 +62,13 @@ public class Medicamento {
 
     public void setDosagem(String dosagem) {
         this.dosagem = dosagem;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }

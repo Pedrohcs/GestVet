@@ -1,0 +1,32 @@
+<app-user></app-user>
+<div>
+  <h2>Vendas realizadas</h2>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Veterinario</th>
+      <th>Animal</th>
+      <th>Data marcada</th>
+      <th>Registro</th>
+      <th>Realizado?</th>
+      <th>Retorno?</th>
+      <th>Consulta Origem</th>
+      <th>Procedimento</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let consulta of historicoConsultas;">
+      <td>{{ consulta.vendedor.name }}</td>
+      <td>{{ consulta.animal.nome }}</td>
+      <td>{{ consulta.dataMarcada }}</td>
+      <td>{{ consulta.registro }}</td>
+      <td>{{ consulta.dataMarcada ? 'Sim' : 'Não' }}</td>
+      <td>{{ consulta.retorno ? 'Sim' : 'Não' }}</td>
+      <td>{{ consulta.consultaOrigem ? consulta.consultaOrigem.dataMarcada : '-' }}</td>
+      <td>{{ consulta.procedimento }}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

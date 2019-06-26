@@ -51,6 +51,8 @@ public class User{
     @Size(min=6, max = 100)
     private String password;
 
+    Long crmv;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles", 
     	joinColumns = @JoinColumn(name = "user_id"), 
@@ -104,6 +106,14 @@ public class User{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Long getCrmv() {
+        return crmv;
+    }
+
+    public void setCrmv(Long crmv) {
+        this.crmv = crmv;
     }
 
     public Set<Role> getRoles() {

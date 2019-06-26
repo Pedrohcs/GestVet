@@ -1,0 +1,81 @@
+<app-user></app-user>
+<div>
+  <h2 style="margin-top: 7vh;">Marcar consulta</h2>
+
+  <div *ngIf="isLoading" class="spinner-border" role="status" style="width: 50px; height: 50px;">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div *ngIf="!isLoading" class="my-container">
+    <div class="row">
+      <div class="col-3">
+        <h6>Veterinario: {{ user.name }}</h6>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <label for="animal">Animal:</label>
+        <select id="animal" name="animal" class="form-control" [(ngModel)]="animalSelected">
+          <option *ngFor="let animal of animaisDisponiveis; let i = index;">{{animal.nome}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <label for="historicoConsultas">Consultas passadas:</label>
+        <select id="historicoConsultas" name="historicoConsultas" class="form-control" [(ngModel)]="consultaSelected">
+          <option *ngFor="let consulta of historicoConsultas;">{{consulta.dataMarcada}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <label for="procedimento">Procedimento:</label>
+        <select id="procedimento" name="procedimento" class="form-control" [(ngModel)]="procedimentoSelected">
+          <option *ngFor="let procedimento of procedimentosDisponiveis; let i = index;">{{procedimento}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <label for="dataMarcada">Data:</label>
+        <input id="dataMarcada" type="date" [(ngModel)]="dateSelected">
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col-3">
+        <h6>Registro</h6>
+        <textarea rows = "5" cols = "50" id="registro" name="registro" [(ngModel)]="registro">
+         </textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <input type="checkbox" name="realizado" [(ngModel)]="realizado"> Realizado?
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <input type="checkbox" name="retorno" [(ngModel)]="retorno"> Retorno?
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+        <button type="button" class="btn btn-primary" (click)="marcarConsulta()">
+          Marcar consulta
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -14,6 +14,7 @@ import com.devteam.backend.gestvet.model.User;
 import com.devteam.backend.gestvet.repository.RoleRepository;
 import com.devteam.backend.gestvet.repository.UserRepository;
 import com.devteam.backend.gestvet.security.jwt.JwtProvider;
+import com.devteam.backend.gestvet.security.services.UserPrinciple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +23,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -50,6 +46,16 @@ public class AuthRestAPIs {
     @Autowired
     JwtProvider jwtProvider;
 
+    @GetMapping("/logged-user")
+    public void getLoggedUser() {
+        if(SecurityContextHolder.getContext().getAuthentication().isAuthenticated()) {
+            System.out.println("Yes.");
+        } else {
+            System.out.println("No.");
+        }
+        System.out.println(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString());
+    }
+
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
 
@@ -64,6 +70,14 @@ public class AuthRestAPIs {
 
         String jwt = jwtProvider.generateJwtToken(authentication);
         return ResponseEntity.ok(new JwtResponse(jwt));
+    }
+
+    @GetMapping(path = {"user/{token}"})
+    public Object authenticatedUser(@PathVariable("token") String token) {
+
+        String userName = jwtProvider.getUserNameFromJwtToken(token);
+        Object user = userRepository.findByUsername(userName);
+        return user;
     }
 
     @PostMapping("/signup")
